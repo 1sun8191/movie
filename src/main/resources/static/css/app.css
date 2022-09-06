@@ -10,8 +10,8 @@ input:invalid {
 #header {
     background: #69cdaa;
     color: #ffffff;
-    padding: 2px;
-    font-size: 3em;
+    padding: 25px;
+    font-size: 4em;
 }
 #header a:link { color:#ffffff; text-decoration: none;}
 
@@ -74,11 +74,3 @@ input:invalid {
 #img { width: 20px; height: auto; padding-bottom: 4px; }
 
 
-
-
-
-
-.v-line {
-border-left : thick solid #32a1ce;
-height : 50px;
-}
