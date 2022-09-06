@@ -4,11 +4,16 @@
     <table id="table" class="table table-horizontal">
         <thead id="thead">
         <tr>
-            <th>번호</th>
-            <th class="col-md-6 text-center">제목</th>
-            <th>작성자</th>
-            <th>작성일</th>
-            <th>조회수</th>
+            <a href="/" role="button" class="btn btn-primary bi bi-pencil-fill"> 현재</a>
+        </tr>
+        <tr>
+            <a href="/posts/future" role="button" class="btn btn-primary bi bi-pencil-fill"> 예정</a>
+        </tr>
+        <tr>
+            <a href="/posts/score" role="button" class="btn btn-primary bi bi-pencil-fill"> 평점</a>
+        </tr>
+        <tr>
+            <a href="/posts/review" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰</a>
         </tr>
         </thead>
         <tbody id="tbody">
@@ -24,7 +29,7 @@
         </tbody>
     </table>
     <div class="text-right">
-        <a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill"> 글쓰기</a>
+        {{!<a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill"> 글쓰기</a>}}
     </div>
     {{! Page //원래 주석}}
     {{!>posts/posts-page //새로 주석}}
