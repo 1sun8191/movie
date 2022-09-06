@@ -1,45 +1,32 @@
 {{>layout/header}}
-    <h1>영화 정보</h1>
-    <div class="col-md-12">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
-                {{#userName}}
-                    Logged in as: <span id="user">{{userName}}</span>
-                    <a href="/logout" class="btn btn-info active" role="button"> Logout </a>
-                {{/userName}}
-                {{^userName}}
-                    <a href = "/oauth2/authorization/google" class="btn btn-success active" role="button">Google Login</a>
-                    <a href = "/oauth2/authorization/naver" class="btn btn-secondary active" role="button">Naver Login</a>
-                {{/userName}}
-            </div>
-        </div>
-        <br>
-        <div class='v-line'>
-            <table class = "table table-horizontal table-bordered">
-                <thead class="thead-strong">
-                <tr>
-                    <th>게시글번호</th>
-                    <th>제목</th>
-                    <th>작성자</th>
-                    <th>최종수정일</th>
-                </tr>
-                </thead>
-                <tbody id="tbody">
-                {{#posts}}
-                    <tr>
-                        <td>{{id}}</td>
-                        <td><a href="/posts/update/{{id}}">{{title}}</a></td>
-                        <!--                    <td><a href="/posts/update/{{id}}">{{author}}</a></td>-->
-                        <td>{{author}}</td>
-                        <td>{{modifiedDate}}</td>
-                    </tr>
-                {{/posts}}
-                </tbody>
-            </table>
-        </div>
 
+<div id="posts_list">
+    <table id="table" class="table table-horizontal">
+        <thead id="thead">
+        <tr>
+            <th>번호</th>
+            <th class="col-md-6 text-center">제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+            <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+        {{#posts}}
+        <tr>
+            <td>{{id}}</td>
+            <td><a href="/posts/read/{{id}}">{{title}}</a></td>
+            <td>{{writer}}</td>
+            <td>{{createdDate}}</td>
+            <td>{{view}}</td>
+        </tr>
+        {{/posts}}
+        </tbody>
+    </table>
+    <div class="text-right">
+        <a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill"> 글쓰기</a>
     </div>
-
-
+    {{! Page //원래 주석}}
+    {{!>posts/posts-page //새로 주석}}
+</div>
 {{>layout/footer}}
