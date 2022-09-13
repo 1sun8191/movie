@@ -1,5 +1,6 @@
 package com.emuce.naver.movie.domain;
 
+import lombok.Builder;
 import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -28,4 +29,16 @@ public class Review extends BaseTimeEntity{
 
     @Column(nullable = false)
     private Integer score;
+
+    @Builder
+    public Review(Member member, String reviewContents, Integer score) {
+        this.member = member;
+        this.reviewContents = reviewContents;
+        this.score = score;
+    }
+
+    public void update(String reviewContents, Integer score) {
+        this.reviewContents = reviewContents;
+        this.score = score;
+    }
 }
