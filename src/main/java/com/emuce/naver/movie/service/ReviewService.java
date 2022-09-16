@@ -6,6 +6,7 @@ import com.emuce.naver.movie.web.dto.ReviewSaveDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -32,7 +33,7 @@ public class ReviewService {
     }
 
     public List<MovieResponseDto> findAllDesc() {
-        return movieRepository.findAllDesc.stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
+        return reviewRepository.findAllDesc.stream().map((Review review) -> new MovieResponseDto(review)).collect(Collectors.toList());
     }
 
 
