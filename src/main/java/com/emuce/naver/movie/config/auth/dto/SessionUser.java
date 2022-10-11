@@ -3,8 +3,10 @@ package com.emuce.naver.movie.config.auth.dto;
 import com.emuce.naver.movie.domain.User;
 import lombok.Getter;
 
+import java.io.Serializable;
+
 @Getter
-public class SessionUser {
+public class SessionUser implements Serializable {
 
     private String name;
     private String email;

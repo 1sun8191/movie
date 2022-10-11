@@ -1,39 +1,64 @@
 package com.emuce.naver.movie.service;
 
-import com.emuce.naver.movie.domain.Review;
+import com.emuce.naver.movie.domain.Movie;
+import com.emuce.naver.movie.domain.MovieRepository;
 import com.emuce.naver.movie.web.dto.MovieResponseDto;
-import com.emuce.naver.movie.web.dto.ReviewSaveDto;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Random;
 import java.util.stream.Collectors;
 
+
+@Slf4j
 @Service
+@RequiredArgsConstructor
 public class MovieService {
 
-    private ReviewRepository reviewRepository;
-    private MovieRepository movieRepository;
+    private final MovieRepository movieRepository;
 
-    public Long save(ReviewSaveDto reviewSaveDto) {
-        return reviewRepository.save(reviewSaveDto.toEntity()).getReviewId();
+//    @Transactional(readOnly = true)         //조회 기능만 남겨두어 조회 속도가 개선
+    public List<MovieResponseDto> findAllMovieDesc() {
+
+        Random random = new Random();
+
+        String title = "title";
+        String contents = "contents";
+//		private LocalDateTime openDate;
+        String director = "director";
+//		private List<Review> reviews;
+//		private LocalDateTime makeDate;
+        String country = "country";
+        Integer score = random.nextInt(4)+1;
+        System.out.println("1111111111111111111111111111");
+        log.info("<<<<<<<<<<<<<<시작");
+        movieRepository.save(Movie.builder()
+                .title(title)
+                .contents(contents)
+                .director(director)
+                .country(country)
+                .openDate(LocalDateTime.now())
+                .makeDate(LocalDateTime.now())
+                .score(score)
+                .build());
+        System.out.println("2222222222222222222222222222");
+        System.out.println("movieRepository = " + movieRepository.findAll());
+//        return  movieRepository.findAll();
+
+        return movieRepository.findAllMovieDesc().stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
     }
 
-    @Transactional
-    public Long update(Long id, ReviewSaveDto reviewSaveDto) {
-        Review review = reviewRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("게시글이 없습니다. id = " + id));
-        review.update(reviewSaveDto.getReviewContents(), reviewSaveDto.getScore());
-        return id;
+    public List<MovieResponseDto> findMovieFutureDesc() {
+        return movieRepository.findMovieFutureDesc().stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
     }
 
-    @Transactional
-    public void delete(Long id) {
-        Review review = reviewRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
-        reviewRepository.delete(review);
+    public List<MovieResponseDto> findMovieScoreDesc() {
+//        return  movieRepository.findAll();
+        return movieRepository.findMovieScoreDesc().stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
     }
-
-    public List<MovieResponseDto> findAllDesc() {
-        return movieRepository.findAllDesc.stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
-    }
-
 
 }

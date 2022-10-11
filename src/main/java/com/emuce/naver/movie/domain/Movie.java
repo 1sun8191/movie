@@ -1,5 +1,6 @@
 package com.emuce.naver.movie.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -37,6 +38,42 @@ public class Movie extends BaseTimeEntity{
     @Column(nullable = false)
     private String country;
 
+    @Column(nullable = false)
+    private Integer score;
 
+    @Builder
+    public Movie(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score) {
+        this.title = title;
+        this.contents = contents;
+        this.openDate = openDate;
+        this.director = director;
+        this.makeDate = makeDate;
+        this.country = country;
+        this.score = score;
+    }
 
+    public void update(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score) {
+        this.title = title;
+        this.contents = contents;
+        this.openDate = openDate;
+        this.director = director;
+        this.makeDate = makeDate;
+        this.country = country;
+        this.score = score;
+    }
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "movieId=" + movieId +
+                ", title='" + title + '\'' +
+                ", contents='" + contents + '\'' +
+                ", openDate=" + openDate +
+                ", director='" + director + '\'' +
+                ", reviews=" + reviews +
+                ", makeDate=" + makeDate +
+                ", country='" + country + '\'' +
+                ", score='" + score + '\'' +
+                '}';
+    }
 }

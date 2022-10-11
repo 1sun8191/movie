@@ -1,0 +1,39 @@
+{{>layout/header}}
+
+<div id="posts_list">
+    <table id="table" class="table table-horizontal">
+        <thead id="thead">
+        <tr>
+            <a href="/" role="button" class="btn btn-primary "> 영화목록 </a>
+        </tr>
+        <tr>
+            <a href="/movie/review" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰 쓰기 </a>
+        </tr>
+        </thead>
+    </table>
+    <table id="table" class="table table-horizontal">
+        <thead class="thead-strong">
+        <tr>
+            <th>리뷰번호</th>
+            <th>리뷰</th>
+            <th>평점</th>
+        </tr>
+        </thead>
+
+        <tbody id="tbody">
+        {{#reviews}}
+            <tr>
+                <td>{{reviewId}}</td>
+                <td>{{reviewContents}}</td>
+                <td>{{score}}</td>
+            </tr>
+        {{/reviews}}
+        </tbody>
+    </table>
+    <div class="text-right">
+        {{!<a href="/posts/write" role="button" class="btn btn-primary bi bi-pencil-fill"> 글쓰기</a>}}
+    </div>
+    {{! Page //원래 주석}}
+    {{!>posts/posts-page //새로 주석}}
+</div>
+{{>layout/footer}}

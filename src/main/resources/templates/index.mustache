@@ -4,28 +4,44 @@
     <table id="table" class="table table-horizontal">
         <thead id="thead">
         <tr>
-            <a href="/" role="button" class="btn btn-primary bi bi-pencil-fill"> 현재</a>
+            <a href="/" role="button" class="btn btn-primary "> 현재 상영작 </a>
         </tr>
         <tr>
-            <a href="/posts/future" role="button" class="btn btn-primary bi bi-pencil-fill"> 예정</a>
+            <a href="/movie/future" role="button" class="btn btn-primary "> 예정 상영작 </a>
         </tr>
         <tr>
-            <a href="/posts/score" role="button" class="btn btn-primary bi bi-pencil-fill"> 평점</a>
+            <a href="/movie/score" role="button" class="btn btn-primary "> 평점별 현재 상영작 순위</a>
         </tr>
+        </thead>
+    </table>
+    <table id="table" class="table table-horizontal">
+        <thead class="thead-strong">
         <tr>
-            <a href="/posts/review" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰</a>
+            <th>게시글번호</th>
+            <th>제목</th>
+            <th>줄거리</th>
+            <th>개봉날짜</th>
+            <th>영화감독</th>
+            <th>평점</th>
+            <th>리뷰</th>
+            <th>촬영날짜</th>
+            <th>국가</th>
         </tr>
         </thead>
         <tbody id="tbody">
-        {{#posts}}
+        {{#movies}}
         <tr>
-            <td>{{id}}</td>
-            <td><a href="/posts/read/{{id}}">{{title}}</a></td>
-            <td>{{writer}}</td>
-            <td>{{createdDate}}</td>
-            <td>{{view}}</td>
+            <td>{{movieId}}</td>
+            <td>{{title}}</td>
+            <td>{{contents}}</td>
+            <td>{{openDate}}</td>
+            <td>{{director}}</td>
+            <td>{{score}}</td>
+            <td><a href="/movie/review/{{movieId}}">리뷰</a></td>
+            <td>{{makeDate}}</td>
+            <td>{{country}}</td>
         </tr>
-        {{/posts}}
+        {{/movies}}
         </tbody>
     </table>
     <div class="text-right">
