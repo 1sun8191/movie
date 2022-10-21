@@ -37,17 +37,18 @@ const main = {
     save : function () {
         const data = {
             title: $('#title').val(),
-            writer: $('#writer').val(),
-            content: $('#content').val()
+            author: $('#author').val(),
+            score: $('#score').val(),
+            reviewContents: $('#reviewContents').val()
         };
         // 공백 및 빈 문자열 체크
-        if (!data.title || data.title.trim() === "" || !data.content || data.content.trim() === "") {
+        if (!data.title || data.title.trim() === "" || !data.reviewContents || data.reviewContents.trim() === "") {
             alert("공백 또는 입력하지 않은 부분이 있습니다.");
             return false;
         } else {
             $.ajax({
                 type: 'POST',
-                url: '/api/posts',
+                url: '/api/movie/review',
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8',
                 data: JSON.stringify(data)

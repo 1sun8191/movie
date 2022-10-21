@@ -24,4 +24,12 @@ public class ReviewSaveDto {
                 .score(score)
                 .build();
     }
+
+    @Override
+    public String toString() {
+        return "ReviewSaveDto{" +
+                "reviewContents='" + reviewContents + '\'' +
+                ", score=" + score +
+                '}';
+    }
 }

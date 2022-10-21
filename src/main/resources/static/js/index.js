@@ -18,6 +18,7 @@ var main = {
             content: $('#content').val()
         };
 
+        alert("#btn-save");
 
         $.ajax({
             type: 'POST',
@@ -37,7 +38,7 @@ var main = {
                 title: $('#title').val(),
                 content: $('#content').val()
             };
-
+            alert("#btn-update");
             var id = $('#id').val();
 
             $.ajax({
@@ -55,7 +56,7 @@ var main = {
     },
     delete : function() {
             var id = $('#id').val();
-
+            alert("#btn-delete");
             $.ajax({
                 type: 'DELETE',
                 url: '/api/v1/posts/'+id,
