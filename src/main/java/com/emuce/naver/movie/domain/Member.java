@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,7 +13,7 @@ public class Member extends BaseTimeEntity{
 
     @Id
     @GeneratedValue
-    @Column(nullable = false)
+    @Column(name="member_id")
     private Long memberId;
 
     @Column(nullable = false)
@@ -24,7 +25,7 @@ public class Member extends BaseTimeEntity{
     @Column
     private String picture;
 
-//    @OneToMany(mappedBy = "reviewId")
+//    @OneToMany(mappedBy = "member")
 //    private List<Review> reviews;
 
 

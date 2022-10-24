@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -29,8 +30,8 @@ public class Movie extends BaseTimeEntity{
     @Column(nullable = false)
     private String director;
 
-    @OneToMany(mappedBy = "reviewId")
-    private List<Review> reviews;
+    @OneToMany(mappedBy = "movie")
+    private List<Review> reviews = new ArrayList<Review>();
 
     @Column
     private LocalDateTime makeDate;

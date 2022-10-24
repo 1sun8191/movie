@@ -43,7 +43,7 @@ const main = {
         };
         // 공백 및 빈 문자열 체크
         if (!data.title || data.title.trim() === "" || !data.reviewContents || data.reviewContents.trim() === "") {
-            alert("공백 또는 입력하지 않은 부분이 있습니다.");
+            alert("공백 또는 입력하지 않은 부분이 있습니다!!.");
             return false;
         } else {
             $.ajax({
@@ -72,7 +72,7 @@ const main = {
         const con_check = confirm("수정하시겠습니까?");
         if (con_check === true) {
             if (!data.title || data.title.trim() === "" || !data.content || data.content.trim() === "") {
-                alert("공백 또는 입력하지 않은 부분이 있습니다.");
+                alert("공백 또는 입력하지 않은 부분이 있습니다22222.");
                 return false;
             } else {
                 $.ajax({
@@ -124,7 +124,7 @@ const main = {
             password: $('#password').val()
         }
         if(!data.nickname || data.nickname.trim() === "" || !data.password || data.password.trim() === "") {
-            alert("공백 또는 입력하지 않은 부분이 있습니다.");
+            alert("공백 또는 입력하지 않은 부분이 있습니다33333.");
             return false;
         } else if(!/(?=.*[0-9])(?=.*[a-zA-Z])(?=.*\W)(?=\S+$).{8,16}/.test(data.password)) {
             alert("비밀번호는 8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
@@ -169,7 +169,7 @@ const main = {
 
         // 공백 및 빈 문자열 체크
         if (!data.comment || data.comment.trim() === "") {
-            alert("공백 또는 입력하지 않은 부분이 있습니다.");
+            alert("공백 또는 입력하지 않은 부분이 있습니다44444.");
             return false;
         } else {
             $.ajax({
@@ -204,7 +204,7 @@ const main = {
         }
 
         if (!data.comment || data.comment.trim() === "") {
-            alert("공백 또는 입력하지 않은 부분이 있습니다.");
+            alert("공백 또는 입력하지 않은 부분이 있습니다.55555");
             return false;
         }
         const con_check = confirm("수정하시겠습니까?");

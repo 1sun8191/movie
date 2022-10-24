@@ -31,7 +31,8 @@ public class ReviewController {
 
 
     @PostMapping("api/movie/review")
-    public Long registerReview(@RequestBody ReviewSaveDto reviewSaveDto) {
+    public Long registerReview(@RequestBody ReviewSaveDto reviewSaveDto)
+    {
         System.out.println("reviewSaveDto = " + reviewSaveDto.toString());
         return reviewService.save(reviewSaveDto);
     }

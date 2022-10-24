@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -14,15 +16,16 @@ public class Review extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="reviewId")
     private Long reviewId;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "movieId")
+//    @JoinColumn(name = "movieId")
     private Movie movie;
 //    private Long movieId;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "memberId")
+//    @JoinColumn(name = "memberId")
     private Member member;
 //    private Long memberId;
 
@@ -31,6 +34,9 @@ public class Review extends BaseTimeEntity{
 
     @Column(nullable = false)
     private Integer score;
+
+//    @OneToMany(mappedBy = "member")
+//    private List<Order> orders = new ArrayList<>();
 
     @Builder
     public Review(String reviewContents, Integer score) {
