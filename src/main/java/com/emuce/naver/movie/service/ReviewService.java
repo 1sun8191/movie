@@ -38,16 +38,7 @@ public class ReviewService {
     }
 
     public List<ReviewResponseDto> findAllReviewDesc(Long movieId) {
-        String reviewContents = "reviewContents";
-        Integer score = 4;
-        System.out.println("1111111111111111111111111111");
-        reviewRepository.save(Review.builder()
-                .reviewContents(reviewContents)
-                .score(score)
-                .build());
-        System.out.println("2222222222222222222222222222");
-
-        return reviewRepository.findById(movieId).stream().map((Review review) -> new ReviewResponseDto(review)).collect(Collectors.toList());
+        return reviewRepository.findByMovieId(movieId).stream().map((Review review) -> new ReviewResponseDto(review)).collect(Collectors.toList());
     }
 
 

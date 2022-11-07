@@ -16,7 +16,7 @@ public class Movie extends BaseTimeEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long movieId;
+    private Long id;
 
     @Column(nullable = false)
     private String title;
@@ -30,8 +30,8 @@ public class Movie extends BaseTimeEntity{
     @Column(nullable = false)
     private String director;
 
-    @OneToMany(mappedBy = "movie")
-    private List<Review> reviews = new ArrayList<Review>();
+//    @OneToMany(mappedBy = "movie")
+//    private List<Review> reviews = new ArrayList<Review>();
 
     @Column
     private LocalDateTime makeDate;
@@ -42,8 +42,11 @@ public class Movie extends BaseTimeEntity{
     @Column(nullable = false)
     private Integer score;
 
+    @Column(nullable = false)
+    private String url;
+
     @Builder
-    public Movie(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score) {
+    public Movie(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score, String url) {
         this.title = title;
         this.contents = contents;
         this.openDate = openDate;
@@ -51,9 +54,10 @@ public class Movie extends BaseTimeEntity{
         this.makeDate = makeDate;
         this.country = country;
         this.score = score;
+        this.url = url;
     }
 
-    public void update(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score) {
+    public void update(String title, String contents, LocalDateTime openDate, String director, LocalDateTime makeDate, String country, Integer score, String url) {
         this.title = title;
         this.contents = contents;
         this.openDate = openDate;
@@ -61,20 +65,22 @@ public class Movie extends BaseTimeEntity{
         this.makeDate = makeDate;
         this.country = country;
         this.score = score;
+        this.url = url;
     }
 
     @Override
     public String toString() {
         return "Movie{" +
-                "movieId=" + movieId +
+                "id=" + id +
                 ", title='" + title + '\'' +
                 ", contents='" + contents + '\'' +
                 ", openDate=" + openDate +
                 ", director='" + director + '\'' +
-                ", reviews=" + reviews +
+//                ", reviews=" + reviews +
                 ", makeDate=" + makeDate +
                 ", country='" + country + '\'' +
                 ", score='" + score + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

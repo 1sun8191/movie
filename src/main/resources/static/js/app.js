@@ -36,13 +36,13 @@ const main = {
     /** 글 작성 */
     save : function () {
         const data = {
-            title: $('#title').val(),
+            movieId: $('#movieId').val(),
             author: $('#author').val(),
             score: $('#score').val(),
             reviewContents: $('#reviewContents').val()
         };
         // 공백 및 빈 문자열 체크
-        if (!data.title || data.title.trim() === "" || !data.reviewContents || data.reviewContents.trim() === "") {
+        if (!data.reviewContents || data.reviewContents.trim() === "") {
             alert("공백 또는 입력하지 않은 부분이 있습니다!!.");
             return false;
         } else {

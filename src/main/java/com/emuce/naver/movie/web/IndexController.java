@@ -2,13 +2,19 @@ package com.emuce.naver.movie.web;
 
 import com.emuce.naver.movie.config.auth.LoginUser;
 import com.emuce.naver.movie.config.auth.dto.SessionUser;
+import com.emuce.naver.movie.domain.Movie;
 import com.emuce.naver.movie.service.MovieService;
+import com.emuce.naver.movie.service.ReviewService;
+import com.emuce.naver.movie.web.dto.ReviewResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -16,6 +22,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class IndexController {
 
     private final MovieService movieService;
+    private final ReviewService reviewService;
 
     @GetMapping("/")
 //    public String index(Model model, @LoginUser SessionUser user) {
@@ -50,7 +57,21 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/movie/reviewEnter/{id}")
+    public String reviewSave(Model model, @PathVariable Long id) {
+        Optional<Movie> movieResponseDto = movieService.findMovieById(id);
+        model.addAttribute("reviewEnter", movieResponseDto);
+        System.out.println("movieResponseDto.toString() = " + model.getAttribute("reviewEnter"));
+        return "movie-review";
+    }
 
+    @GetMapping("movie/review/{id}")
+    public String findReview(Model model, @PathVariable Long id) {
+        List<ReviewResponseDto> reviewResponseDto = reviewService.findAllReviewDesc(id);
+        model.addAttribute("reviews",reviewResponseDto);
+        System.out.println("reviews = " + model.getAttribute("reviews"));
+        return "review";
+    }
 
 
 

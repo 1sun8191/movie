@@ -7,7 +7,7 @@
             <a href="/" role="button" class="btn btn-primary "> 영화목록 </a>
         </tr>
         <tr>
-            <a href="/movie/review" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰 쓰기 </a>
+            <a href="/movie/reviewEnter/{{id}}" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰 쓰기 </a>
         </tr>
         </thead>
     </table>
@@ -24,7 +24,7 @@
         <tbody id="tbody">
         {{#reviews}}
             <tr>
-                <td>{{reviewId}}</td>
+                <td>{{movieId}}</td>
                 <td>{{reviewId}}</td>
                 <td>{{reviewContents}}</td>
                 <td>{{score}}</td>

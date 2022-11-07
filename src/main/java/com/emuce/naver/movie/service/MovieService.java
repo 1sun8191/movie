@@ -6,10 +6,10 @@ import com.emuce.naver.movie.web.dto.MovieResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -34,8 +34,7 @@ public class MovieService {
 //		private LocalDateTime makeDate;
         String country = "country";
         Integer score = random.nextInt(4)+1;
-        System.out.println("1111111111111111111111111111");
-        log.info("<<<<<<<<<<<<<<시작");
+        String url = "img/confession.jpg";
         movieRepository.save(Movie.builder()
                 .title(title)
                 .contents(contents)
@@ -44,6 +43,7 @@ public class MovieService {
                 .openDate(LocalDateTime.now())
                 .makeDate(LocalDateTime.now())
                 .score(score)
+                .url(url)
                 .build());
         System.out.println("2222222222222222222222222222");
         System.out.println("movieRepository = " + movieRepository.findAll());
@@ -59,6 +59,10 @@ public class MovieService {
     public List<MovieResponseDto> findMovieScoreDesc() {
 //        return  movieRepository.findAll();
         return movieRepository.findMovieScoreDesc().stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
+    }
+
+    public Optional<Movie> findMovieById(Long id) {
+        return movieRepository.findById(id);
     }
 
 }

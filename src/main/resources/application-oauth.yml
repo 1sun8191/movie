@@ -4,8 +4,8 @@ spring:
       client:
         registration:
           google:
-            client-id: 307804419617-5rh8u58lk6tm0rtflc70v3m5pep0u5c7.apps.googleusercontent.com
-            client-secret: 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
+            client-id: 109077563897-nrcq8pss9ht1r60kfif2aa14cajhe8nv.apps.googleusercontent.com
+            client-secret: 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
             scope: profile, email
           naver:
             client-id: Eu_a74GzGFLzLgRJ3vBx

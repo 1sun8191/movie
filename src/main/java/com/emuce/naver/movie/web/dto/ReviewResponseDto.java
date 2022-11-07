@@ -18,7 +18,7 @@ import java.util.List;
 public class ReviewResponseDto {
 
     private Long reviewId;
-    private Movie movie;
+    private Long movieId;
     private Member member;
 //    private Long movieId;
 //    private Long memberId;
@@ -27,9 +27,9 @@ public class ReviewResponseDto {
 
     public ReviewResponseDto(Review review) {
         this.reviewId = review.getReviewId();
-//        this.movieId = review.getMovieId();
+        this.movieId = review.getMovieId();
 //        this.memberId = review.getMemberId();
-        this.movie = review.getMovie();
+//        this.movieId = review.getMovie().getId();
         this.member = review.getMember();
         this.reviewContents = review.getReviewContents();
         this.score = review.getScore();

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    @Query("SELECT p FROM Movie p ORDER BY p.movieId DESC")
+    @Query("SELECT p FROM Movie p ORDER BY p.id DESC")
     List<Movie> findAllMovieDesc();
 
     @Query("SELECT p FROM Movie p ORDER BY p.openDate")

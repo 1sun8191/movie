@@ -14,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 public class MovieResponseDto {
 
-    private Long movieId;
+    private Long id;
     private String title;
     private String contents;
     private LocalDateTime openDate;
@@ -23,9 +23,10 @@ public class MovieResponseDto {
     private LocalDateTime makeDate;
     private String country;
     private Integer score;
+    private String url;
 
     public MovieResponseDto(Movie movie) {
-        this.movieId = movie.getMovieId();
+        this.id = movie.getId();
         this.title = movie.getTitle();
         this.contents = movie.getContents();
         this.openDate = movie.getOpenDate();
@@ -34,5 +35,6 @@ public class MovieResponseDto {
         this.makeDate = movie.getMakeDate();
         this.country = movie.getCountry();
         this.score = movie.getScore();
+        this.url = movie.getUrl();
     }
 }

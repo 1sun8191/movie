@@ -19,9 +19,10 @@ public class Review extends BaseTimeEntity{
     @Column(name="reviewId")
     private Long reviewId;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+//    @ManyToOne(fetch=FetchType.LAZY)
 //    @JoinColumn(name = "movieId")
-    private Movie movie;
+    @Column
+    private Long movieId;
 //    private Long movieId;
 
     @ManyToOne(fetch=FetchType.LAZY)
@@ -39,7 +40,8 @@ public class Review extends BaseTimeEntity{
 //    private List<Order> orders = new ArrayList<>();
 
     @Builder
-    public Review(String reviewContents, Integer score) {
+    public Review(Long movieId, String reviewContents, Integer score) {
+        this.movieId = movieId;
         this.reviewContents = reviewContents;
         this.score = score;
     }

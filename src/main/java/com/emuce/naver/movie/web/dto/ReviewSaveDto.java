@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReviewSaveDto {
 
+    private Long movieId;
     private String reviewContents;
 //    private String author;
     private Integer score;
 
     @Builder
-    public ReviewSaveDto(String reviewContents, Integer score) {
+    public ReviewSaveDto(Long movieId, String reviewContents, Integer score) {
+        this.movieId = movieId;
         this.reviewContents = reviewContents;
         this.score = score;
 //        this.author = author;
@@ -22,6 +24,7 @@ public class ReviewSaveDto {
 
     public Review toEntity() {
         return Review.builder()
+                .movieId(movieId)
                 .reviewContents(reviewContents)
                 .score(score)
 //                .author(author)
@@ -31,7 +34,8 @@ public class ReviewSaveDto {
     @Override
     public String toString() {
         return "ReviewSaveDto{" +
-                "reviewContents='" + reviewContents + '\'' +
+                "movieId='" + movieId + '\'' +
+                ", reviewContents='" + reviewContents + '\'' +
                 ", score=" + score +
                 '}';
     }
