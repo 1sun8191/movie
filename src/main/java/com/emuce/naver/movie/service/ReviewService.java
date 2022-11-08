@@ -1,6 +1,5 @@
 package com.emuce.naver.movie.service;
 
-import com.emuce.naver.movie.domain.Movie;
 import com.emuce.naver.movie.domain.Review;
 import com.emuce.naver.movie.domain.ReviewRepository;
 import com.emuce.naver.movie.web.dto.ReviewResponseDto;
@@ -9,8 +8,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +38,11 @@ public class ReviewService {
 
     public List<ReviewResponseDto> findAllReviewDesc(Long movieId) {
         return reviewRepository.findByMovieId(movieId).stream().map((Review review) -> new ReviewResponseDto(review)).collect(Collectors.toList());
+    }
+
+    public Optional<Review> findReviewById(Long reviewId) {
+        System.out.println("reviewId findReviewById= " + reviewId);
+        return reviewRepository.findById(reviewId);
     }
 
 

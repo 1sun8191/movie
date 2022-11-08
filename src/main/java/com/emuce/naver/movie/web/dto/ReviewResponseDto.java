@@ -19,6 +19,7 @@ public class ReviewResponseDto {
 
     private Long reviewId;
     private Long movieId;
+    private String title;
     private Member member;
 //    private Long movieId;
 //    private Long memberId;
@@ -28,6 +29,7 @@ public class ReviewResponseDto {
     public ReviewResponseDto(Review review) {
         this.reviewId = review.getReviewId();
         this.movieId = review.getMovieId();
+        this.title = review.getTitle();
 //        this.memberId = review.getMemberId();
 //        this.movieId = review.getMovie().getId();
         this.member = review.getMember();

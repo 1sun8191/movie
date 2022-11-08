@@ -62,6 +62,8 @@ public class MovieService {
     }
 
     public Optional<Movie> findMovieById(Long id) {
+        System.out.println("id findMovieById= " + id);
+        System.out.println("movieRepository.findById(id) = " + movieRepository.findById(id));
         return movieRepository.findById(id);
     }
 

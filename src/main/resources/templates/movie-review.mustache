@@ -5,9 +5,9 @@
 <div class="col-md-12">
     <div class="col-md-4">
         <form>
-            {{#reviewEnter}}
+            {{#title}}
             <div class="form-group">
-                <label for="title">제목 : </label>
+                <label for="title">제목 : {{title}}</label>
                 <input type="hidden" id="movieId" value="{{id}}"> {{! label 연결 }}
             </div>
             <div class="form-group">
@@ -22,7 +22,7 @@
                 <label for="score"> 평점 </label>
                 <textarea class="form-control" id="score" placeholder="점수를 입력하세요"></textarea>
             </div>
-            {{/reviewEnter}}
+            {{/title}}
         </form>
         <a href="/" role="button" class="btn btn-secondary">취소</a>
         <button type="button" class="btn btn-primary" id="btn-save">등록</button>

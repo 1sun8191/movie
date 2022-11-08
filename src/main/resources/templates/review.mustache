@@ -9,12 +9,16 @@
         <tr>
             <a href="/movie/reviewEnter/{{id}}" role="button" class="btn btn-primary bi bi-pencil-fill"> 리뷰 쓰기 </a>
         </tr>
+        {{#title}}
+        <tr>
+            <td>{{title}}</td>
+        </tr>
+        {{/title}}
         </thead>
     </table>
     <table id="table" class="table table-horizontal">
         <thead class="thead-strong">
         <tr>
-            <th>영화제목</th>
             <th>리뷰번호</th>
             <th>리뷰</th>
             <th>평점</th>
@@ -24,9 +28,8 @@
         <tbody id="tbody">
         {{#reviews}}
             <tr>
-                <td>{{movieId}}</td>
                 <td>{{reviewId}}</td>
-                <td>{{reviewContents}}</td>
+                <td><a href="/movie/reviewModify/{{reviewId}}">{{reviewContents}}</a></td>
                 <td>{{score}}</td>
             </tr>
         {{/reviews}}

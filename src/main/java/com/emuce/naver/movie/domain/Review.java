@@ -25,6 +25,9 @@ public class Review extends BaseTimeEntity{
     private Long movieId;
 //    private Long movieId;
 
+    @Column
+    private String title;
+
     @ManyToOne(fetch=FetchType.LAZY)
 //    @JoinColumn(name = "memberId")
     private Member member;
@@ -40,8 +43,9 @@ public class Review extends BaseTimeEntity{
 //    private List<Order> orders = new ArrayList<>();
 
     @Builder
-    public Review(Long movieId, String reviewContents, Integer score) {
+    public Review(Long movieId, String reviewContents, Integer score, String title) {
         this.movieId = movieId;
+        this.title = title;
         this.reviewContents = reviewContents;
         this.score = score;
     }

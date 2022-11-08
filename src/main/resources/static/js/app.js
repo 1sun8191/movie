@@ -54,7 +54,7 @@ const main = {
                 data: JSON.stringify(data)
             }).done(function () {
                 alert('등록되었습니다.');
-                window.location.href = '/';
+                window.location.href = '/movie/review/' + data.movieId;
             }).fail(function (error) {
                 alert(JSON.stringify(error));
             });

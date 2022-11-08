@@ -3,9 +3,11 @@ package com.emuce.naver.movie.web;
 import com.emuce.naver.movie.config.auth.LoginUser;
 import com.emuce.naver.movie.config.auth.dto.SessionUser;
 import com.emuce.naver.movie.domain.Movie;
+import com.emuce.naver.movie.domain.Review;
 import com.emuce.naver.movie.service.MovieService;
 import com.emuce.naver.movie.service.ReviewService;
 import com.emuce.naver.movie.web.dto.ReviewResponseDto;
+import com.emuce.naver.movie.web.dto.ReviewSaveDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -61,7 +63,17 @@ public class IndexController {
     public String reviewSave(Model model, @PathVariable Long id) {
         Optional<Movie> movieResponseDto = movieService.findMovieById(id);
         model.addAttribute("reviewEnter", movieResponseDto);
-        System.out.println("movieResponseDto.toString() = " + model.getAttribute("reviewEnter"));
+        model.addAttribute("title", "title");
+        System.out.println("reviewEnter = " + model.getAttribute("reviewEnter"));
+        return "movie-review";
+    }
+
+    @GetMapping("/movie/reviewUpdate/{reviewId}")
+    public String reviewUpdate(Model model, @PathVariable Long reviewId) {
+        Optional<Review> reviewSaveDto = reviewService.findReviewById(reviewId);
+        model.addAttribute("reviewUpdate", reviewSaveDto);
+        model.addAttribute("title", "title");
+        System.out.println("reviewUpdate = " + model.getAttribute("reviewUpdate"));
         return "movie-review";
     }
 
