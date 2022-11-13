@@ -1,9 +1,8 @@
 package com.emuce.naver.movie;
 
-import com.emuce.naver.movie.domain.Movie;
-import com.emuce.naver.movie.domain.MovieRepository;
+import com.emuce.naver.movie.domain.movie.Movie;
+import com.emuce.naver.movie.domain.movie.MovieRepository;
 import com.emuce.naver.movie.service.MovieService;
-import com.emuce.naver.movie.web.dto.MovieResponseDto;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

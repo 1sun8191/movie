@@ -1,6 +1,6 @@
 package com.emuce.naver.movie.config.auth;
 
-import com.emuce.naver.movie.domain.Role;
+import com.emuce.naver.movie.domain.user.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

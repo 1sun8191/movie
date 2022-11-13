@@ -2,8 +2,8 @@ package com.emuce.naver.movie.config.auth;
 
 import com.emuce.naver.movie.config.auth.dto.OAuthAttributes;
 import com.emuce.naver.movie.config.auth.dto.SessionUser;
-import com.emuce.naver.movie.domain.User;
-import com.emuce.naver.movie.domain.UserRepository;
+import com.emuce.naver.movie.domain.user.User;
+import com.emuce.naver.movie.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;

@@ -1,7 +1,7 @@
 package com.emuce.naver.movie.service;
 
-import com.emuce.naver.movie.domain.Review;
-import com.emuce.naver.movie.domain.ReviewRepository;
+import com.emuce.naver.movie.domain.review.Review;
+import com.emuce.naver.movie.domain.review.ReviewRepository;
 import com.emuce.naver.movie.web.dto.ReviewResponseDto;
 import com.emuce.naver.movie.web.dto.ReviewSaveDto;
 import lombok.RequiredArgsConstructor;
@@ -40,9 +40,10 @@ public class ReviewService {
         return reviewRepository.findByMovieId(movieId).stream().map((Review review) -> new ReviewResponseDto(review)).collect(Collectors.toList());
     }
 
-    public Optional<Review> findReviewById(Long reviewId) {
+    public Review findReviewById(Long reviewId) {
+        Review review = reviewRepository.findById(reviewId).orElseThrow(() -> new IllegalArgumentException());
         System.out.println("reviewId findReviewById= " + reviewId);
-        return reviewRepository.findById(reviewId);
+        return review;
     }
 
 

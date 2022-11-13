@@ -1,15 +1,9 @@
 package com.emuce.naver.movie.web;
 
-import com.emuce.naver.movie.domain.Review;
 import com.emuce.naver.movie.service.ReviewService;
-import com.emuce.naver.movie.web.dto.ReviewResponseDto;
 import com.emuce.naver.movie.web.dto.ReviewSaveDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor

@@ -1,6 +1,6 @@
 package com.emuce.naver.movie.web.dto;
 
-import com.emuce.naver.movie.domain.Review;
+import com.emuce.naver.movie.domain.review.Review;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +13,14 @@ public class ReviewSaveDto {
     private String reviewContents;
 //    private String author;
     private Integer score;
+    private String userName;
 
     @Builder
-    public ReviewSaveDto(Long movieId, String reviewContents, Integer score) {
+    public ReviewSaveDto(Long movieId, String reviewContents, Integer score, String userName) {
         this.movieId = movieId;
         this.reviewContents = reviewContents;
         this.score = score;
-//        this.author = author;
+        this.userName = userName;
     }
 
     public Review toEntity() {
@@ -27,7 +28,7 @@ public class ReviewSaveDto {
                 .movieId(movieId)
                 .reviewContents(reviewContents)
                 .score(score)
-//                .author(author)
+                .userName(userName)
                 .build();
     }
 
@@ -37,6 +38,7 @@ public class ReviewSaveDto {
                 "movieId='" + movieId + '\'' +
                 ", reviewContents='" + reviewContents + '\'' +
                 ", score=" + score +
+                ", userName=" + userName +
                 '}';
     }
 }

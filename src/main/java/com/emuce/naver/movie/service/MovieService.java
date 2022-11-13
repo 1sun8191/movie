@@ -1,7 +1,8 @@
 package com.emuce.naver.movie.service;
 
-import com.emuce.naver.movie.domain.Movie;
-import com.emuce.naver.movie.domain.MovieRepository;
+import com.emuce.naver.movie.domain.movie.Movie;
+import com.emuce.naver.movie.domain.movie.MovieRepository;
+import com.emuce.naver.movie.domain.review.Review;
 import com.emuce.naver.movie.web.dto.MovieResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -61,10 +62,9 @@ public class MovieService {
         return movieRepository.findMovieScoreDesc().stream().map((Movie movie) -> new MovieResponseDto(movie)).collect(Collectors.toList());
     }
 
-    public Optional<Movie> findMovieById(Long id) {
-        System.out.println("id findMovieById= " + id);
-        System.out.println("movieRepository.findById(id) = " + movieRepository.findById(id));
-        return movieRepository.findById(id);
+    public Movie findMovieById(Long id) {
+        Movie movie = movieRepository.findById(id).orElseThrow(() -> new IllegalArgumentException());
+        return movie;
     }
 
 }

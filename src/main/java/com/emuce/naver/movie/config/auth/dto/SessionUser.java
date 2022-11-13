@@ -1,6 +1,6 @@
 package com.emuce.naver.movie.config.auth.dto;
 
-import com.emuce.naver.movie.domain.User;
+import com.emuce.naver.movie.domain.user.User;
 import lombok.Getter;
 
 import java.io.Serializable;

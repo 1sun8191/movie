@@ -1,0 +1,31 @@
+{{>layout/header}}
+
+<h1>게시글 수정</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="author"> 작성자 : {{reviewUpdate.userName}}</label>
+                <input type="hidden" id="movieId" value="{{reviewUpdate.movieId}}"> {{! label 연결 }}
+            </div>
+            <div class="form-group">
+                <label for="title">글번호</label>
+                <input type="text" class="form-control" id="reviewId" value="{{reviewUpdate.reviewId}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="reviewContents"> 리뷰 내용 </label>
+                <input type="text" class="form-control" id="reviewContents" value="{{reviewUpdate.reviewContents}}">
+            </div>
+            <div class="form-group">
+                <label for="score"> 평점 </label>
+                <input type="text" class="form-control" id="score" value="{{reviewUpdate.score}}">
+            </div>
+        </form>
+        <a href="/movie/review/{{reviewUpdate.movieId}}" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-update">수정</button>
+        <button type="button" class="btn btn-danger" id="btn-delete">삭제</button>
+    </div>
+</div>
+
+{{>layout/footer}}

@@ -1,5 +1,6 @@
-package com.emuce.naver.movie.domain;
+package com.emuce.naver.movie.domain.user;
 
+import com.emuce.naver.movie.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor
-public class Member extends BaseTimeEntity{
+public class Member extends BaseTimeEntity {
 
     @Id
     @GeneratedValue

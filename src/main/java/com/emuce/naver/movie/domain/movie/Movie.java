@@ -1,18 +1,17 @@
-package com.emuce.naver.movie.domain;
+package com.emuce.naver.movie.domain.movie;
 
+import com.emuce.naver.movie.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @Entity
 @NoArgsConstructor
-public class Movie extends BaseTimeEntity{
+public class Movie extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +29,7 @@ public class Movie extends BaseTimeEntity{
     @Column(nullable = false)
     private String director;
 
-//    @OneToMany(mappedBy = "movie")
-//    private List<Review> reviews = new ArrayList<Review>();
+
 
     @Column
     private LocalDateTime makeDate;

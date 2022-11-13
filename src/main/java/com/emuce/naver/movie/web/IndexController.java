@@ -2,18 +2,18 @@ package com.emuce.naver.movie.web;
 
 import com.emuce.naver.movie.config.auth.LoginUser;
 import com.emuce.naver.movie.config.auth.dto.SessionUser;
-import com.emuce.naver.movie.domain.Movie;
-import com.emuce.naver.movie.domain.Review;
+import com.emuce.naver.movie.domain.movie.Movie;
+import com.emuce.naver.movie.domain.review.Review;
 import com.emuce.naver.movie.service.MovieService;
 import com.emuce.naver.movie.service.ReviewService;
 import com.emuce.naver.movie.web.dto.ReviewResponseDto;
-import com.emuce.naver.movie.web.dto.ReviewSaveDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Optional;
@@ -61,20 +61,24 @@ public class IndexController {
 
     @GetMapping("/movie/reviewEnter/{id}")
     public String reviewSave(Model model, @PathVariable Long id) {
-        Optional<Movie> movieResponseDto = movieService.findMovieById(id);
+        Movie movieResponseDto = movieService.findMovieById(id);
         model.addAttribute("reviewEnter", movieResponseDto);
-        model.addAttribute("title", "title");
+        model.addAttribute("title", movieResponseDto.getTitle());
         System.out.println("reviewEnter = " + model.getAttribute("reviewEnter"));
+        System.out.println("title = " + model.getAttribute("title"));
         return "movie-review";
     }
 
     @GetMapping("/movie/reviewUpdate/{reviewId}")
-    public String reviewUpdate(Model model, @PathVariable Long reviewId) {
-        Optional<Review> reviewSaveDto = reviewService.findReviewById(reviewId);
+    public ModelAndView reviewUpdate(Model model, @PathVariable Long reviewId) {
+        Review reviewSaveDto = reviewService.findReviewById(reviewId);
+        System.out.println("reviewSaveDto = " + reviewSaveDto.toString());
         model.addAttribute("reviewUpdate", reviewSaveDto);
-        model.addAttribute("title", "title");
-        System.out.println("reviewUpdate = " + model.getAttribute("reviewUpdate"));
-        return "movie-review";
+        System.out.println("reviewUpdate = " + model.getAttribute("reviewUpdate").toString());
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("movie-review-update");
+        modelAndView.addObject("reviewUpdate", reviewSaveDto);
+        return modelAndView;
     }
 
     @GetMapping("movie/review/{id}")

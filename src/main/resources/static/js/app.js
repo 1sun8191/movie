@@ -37,7 +37,8 @@ const main = {
     save : function () {
         const data = {
             movieId: $('#movieId').val(),
-            author: $('#author').val(),
+            title: $('#title').val(),
+            userName: $('#userName').val(),
             score: $('#score').val(),
             reviewContents: $('#reviewContents').val()
         };
@@ -64,26 +65,27 @@ const main = {
     /** 글 수정 */
     update : function () {
         const data = {
-            id: $('#id').val(),
-            title: $('#title').val(),
-            content: $('#content').val()
+            reviewId: $('#reviewId').val(),
+            movieId: $('#movieId').val(),
+            reviewContents: $('#reviewContents').val(),
+            score: $('#score').val()
         };
 
         const con_check = confirm("수정하시겠습니까?");
         if (con_check === true) {
-            if (!data.title || data.title.trim() === "" || !data.content || data.content.trim() === "") {
+            if (!data.reviewContents || data.reviewContents.trim() === "" || !data.score || data.score.trim() === "") {
                 alert("공백 또는 입력하지 않은 부분이 있습니다22222.");
                 return false;
             } else {
                 $.ajax({
                     type: 'PUT',
-                    url: '/api/posts/' + data.id,
+                    url: '/api/movie/review/' + data.reviewId,
                     dataType: 'JSON',
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify(data)
                 }).done(function () {
                     alert("수정되었습니다.");
-                    window.location.href = '/posts/read/' + data.id;
+                    window.location.href = '/movie/review/' + data.movieId;
                 }).fail(function (error) {
                     alert(JSON.stringify(error));
                 });
@@ -93,19 +95,19 @@ const main = {
 
     /** 글 삭제 */
     delete : function () {
-        const id = $('#id').val();
+        const reviewId = $('#reviewId').val();
         const con_check = confirm("정말 삭제하시겠습니까?");
 
         if(con_check == true) {
             $.ajax({
                 type: 'DELETE',
-                url: '/api/posts/'+id,
+                url: '/api/movie/review/'+reviewId,
                 dataType: 'JSON',
                 contentType: 'application/json; charset=utf-8'
 
             }).done(function () {
                 alert("삭제되었습니다.");
-                window.location.href = '/';
+                window.location.reload();
             }).fail(function (error) {
                 alert(JSON.stringify(error));
             });

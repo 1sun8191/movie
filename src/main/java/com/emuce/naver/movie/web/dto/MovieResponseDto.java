@@ -1,14 +1,10 @@
 package com.emuce.naver.movie.web.dto;
 
-import com.emuce.naver.movie.domain.Movie;
-import com.emuce.naver.movie.domain.Review;
+import com.emuce.naver.movie.domain.movie.Movie;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor

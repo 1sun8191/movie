@@ -1,4 +1,4 @@
-package com.emuce.naver.movie.domain;
+package com.emuce.naver.movie.domain.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

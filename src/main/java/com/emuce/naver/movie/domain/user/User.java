@@ -1,5 +1,6 @@
-package com.emuce.naver.movie.domain;
+package com.emuce.naver.movie.domain.user;
 
+import com.emuce.naver.movie.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

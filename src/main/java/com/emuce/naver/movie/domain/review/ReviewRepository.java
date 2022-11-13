@@ -1,6 +1,5 @@
-package com.emuce.naver.movie.domain;
+package com.emuce.naver.movie.domain.review;
 
-import com.emuce.naver.movie.domain.Review;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

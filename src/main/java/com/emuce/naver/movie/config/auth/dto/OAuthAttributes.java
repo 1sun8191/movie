@@ -1,7 +1,7 @@
 package com.emuce.naver.movie.config.auth.dto;
 
-import com.emuce.naver.movie.domain.Role;
-import com.emuce.naver.movie.domain.User;
+import com.emuce.naver.movie.domain.user.Role;
+import com.emuce.naver.movie.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 
