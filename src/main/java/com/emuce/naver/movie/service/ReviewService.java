@@ -19,7 +19,6 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
 
     public Long save(ReviewSaveDto reviewSaveDto) {
-        System.out.println("reviewRepository.save(reviewSaveDto.toEntity()).getReviewId() = " + reviewRepository.save(reviewSaveDto.toEntity()).getReviewId());
         return reviewRepository.save(reviewSaveDto.toEntity()).getReviewId();
     }
 
